@@ -102,7 +102,7 @@
     
     <h3 class="w3-margin-top">Solução de Limpeza</h3>
     <div class="w3-section">
-      <label>Solução de Limpeza 1L (cabem 9 por caixa)</label>
+      <label>Solução de Limpeza 1L (cabem 10 por caixa)</label>
       <input class="w3-input w3-border" type="number" id="solucao1L" min="0" value="0">
     </div>
     
@@ -127,15 +127,15 @@
 <script>
 // Capacidades por marca
 const capacidades = {
-  "DRUCKER": 9,
-  "HITACHI": 9,
+  "DRUCKER": 10,
+  "HITACHI": 10,
   "linx": 7,
   "VJ": 8,
-  "WILLETT CITRONIX": 9,
+  "WILLETT CITRONIX": 10,
   "DOMINO": 8,
   "DOMINO TINTA AX": 8,
   "DOMINO MAKE UP AX": 4,
-  "IMAJE": 9,
+  "IMAJE": 10,
   
 };
 
@@ -194,7 +194,7 @@ function calcularCaixas() {
     const marcaSelecionada = brand.value;
     const qty = document.querySelectorAll('[name="makeup-qty"]')[index].value;
     if (marcaSelecionada && qty > 0) {
-      const capacidade = capacidades[marcaSelecionada] || 9; // Default 9 se não encontrado
+      const capacidade = capacidades[marcaSelecionada] || 10; // Default 10 se não encontrado
       makeupBrands.push({
         name: marcaSelecionada,
         qty: parseInt(qty),
@@ -210,7 +210,7 @@ function calcularCaixas() {
     const marcaSelecionada = brand.value;
     const qty = document.querySelectorAll('[name="tinta-qty"]')[index].value;
     if (marcaSelecionada && qty > 0) {
-      const capacidade = capacidades[marcaSelecionada] || 9; // Default 9 se não encontrado
+      const capacidade = capacidades[marcaSelecionada] || 10; // Default 10 se não encontrado
       tintaBrands.push({
         name: marcaSelecionada,
         qty: parseInt(qty),
@@ -223,7 +223,7 @@ function calcularCaixas() {
   // Obter soluções de limpeza
   const solucao1L = parseInt(document.getElementById('solucao1L').value) || 0;
   const solucao5L = parseInt(document.getElementById('solucao5L').value) || 0;
-  const caixasSolucao1L = Math.ceil(solucao1L / 9);
+  const caixasSolucao1L = Math.ceil(solucao1L / 10);
   const caixasSolucao5L = Math.ceil(solucao5L / 2);
   
   // Calcular totais
@@ -257,7 +257,7 @@ function calcularCaixas() {
   document.getElementById('tinta-result').innerHTML = tintaHTML;
   
   document.getElementById('solucao1L-result').innerHTML = 
-    `<h4>Solução 1L:</h4><p>${solucao1L} unidades → ${caixasSolucao1L} caixa(s) (9 unid./caixa)</p>`;
+    `<h4>Solução 1L:</h4><p>${solucao1L} unidades → ${caixasSolucao1L} caixa(s) (10 unid./caixa)</p>`;
   document.getElementById('solucao5L-result').innerHTML = 
     `<h4>Solução 5L:</h4><p>${solucao5L} unidades → ${caixasSolucao5L} caixa(s) (2 unid./caixa)</p>`;
   document.getElementById('total-result').innerHTML = 
